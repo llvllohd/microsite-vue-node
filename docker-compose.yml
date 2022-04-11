@@ -1,0 +1,27 @@
+version: "3.9"
+services:
+  msw:
+    container_name: msw
+    build: './msw'
+    image: msw
+    ports:
+      - "7000:3000"
+
+  login:
+    container_name: login
+    build: './login'
+    image: login
+    ports:
+      - "7001:3000"
+
+  nginx:
+    container_name: nginx
+    image: nginx:latest
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./msw/dist:/usr/share/nginx/html
+      - ./default.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - msw
+      - login
