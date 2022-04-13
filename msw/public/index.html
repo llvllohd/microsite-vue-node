@@ -18,20 +18,20 @@
       };
       localStorage.setItem('msw', JSON.stringify(storageData));
       getLogin = () => {
-        const response = fetch('http://localhost:8080/login', {
-          method: 'POST',
-          body: JSON.stringify({ name: 'Asif Ahmed' }),
-          headers: {
-            Accept: 'application/json',
-            'Content-Type': 'application/json',
-            location: 'www.asif.com',
-          },
-        }).then((res) => {
-          console.log(res);
-          if (res.status === 200) {
-            window.location.replace(res.url);
-          }
-        });
+        // const response = fetch('http://localhost:8080/login', {
+          // method: 'POST',
+          // body: JSON.stringify({ name: 'Asif Ahmed' }),
+          // headers: {
+            // Accept: 'application/json',
+            // 'Content-Type': 'application/json',
+            // location: 'www.asif.com',
+          // },
+        // }).then((res) => {
+          // console.log(res);
+          // if (res.status === 200) {
+            window.location.replace('http://localhost:8080/login');
+          // }
+        // });
       };
     </script>
   </body>
